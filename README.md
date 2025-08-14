@@ -2,6 +2,20 @@
 
 Learning Create Todo List Vue
 
+## Preview
+
+## EmptyTask
+
+![EmptyTask](https://github.com/harun-alrosyid/vue-todo-list/blob/master/EmptyTask.jpg?raw=true)
+
+## AddTask
+
+![AddTask](https://github.com/harun-alrosyid/vue-todo-list/blob/master/AddTask.jpg?raw=true)
+
+## CompleteTask
+
+![CompleteTask](https://github.com/harun-alrosyid/vue-todo-list/blob/master/CompleteTask.jpg?raw=true)
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
