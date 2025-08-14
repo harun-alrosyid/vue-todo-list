@@ -1,6 +1,7 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <h1>Todo List Vue</h1>
+    <p>Verison 1.0.0</p>
   </div>
 </template>
 
