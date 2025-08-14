@@ -9,6 +9,18 @@ const tasks = reactive([])
 const addTask = (task) => {
   tasks.push(task)
 }
+const removeTask = (index) => {
+  tasks.value = tasks.splice(index, 1)
+}
+
+const completeTask = (index) => {
+  tasks.value = tasks.map((task, i) => {
+    if (i === index) {
+      task.completed = !task.completed
+    }
+    return task
+  })
+}
 </script>
 <template>
   <div
@@ -18,14 +30,16 @@ const addTask = (task) => {
     <p>A Simple task management • Vue prototype</p>
     <div class="w-full">
       <h2 class="text-2xl font-sans font-bold">TODO LIST</h2>
-      <p>0 total * 0 completed</p>
+      <p>
+        {{ tasks.length }} total * {{ tasks.filter((task) => task.completed).length }} completed
+      </p>
 
-      <div class="w-3/4 mx-auto p-10">
+      <div class="w-[95%] mx-auto p-10 h-[50vh]">
         <InputTask @addTask="addTask" />
 
         <EmptyTask v-if="tasks.length === 0" />
 
-        <ListTasks v-else :tasks="tasks" />
+        <ListTasks v-else :tasks="tasks" @removeTask="removeTask" @completeTask="completeTask" />
       </div>
     </div>
   </div>

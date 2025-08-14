@@ -1,11 +1,13 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
+const emit = defineEmits(['addTask']) // definisikan event
 const todoInput = ref('')
 
-watch(todoInput, () => {
-  todoInput.value
-})
+function handleAddTask() {
+  emit('addTask', { item: todoInput.value, completed: false })
+  todoInput.value = ''
+}
 </script>
 
 <template>
@@ -17,11 +19,11 @@ watch(todoInput, () => {
       v-model.trim="todoInput"
     />
     <button
-      @click="$emit('addTask', todoInput)"
-      class="inline-flex items-center justify-center gap-2 py-2 px-4 whitespace-nowrap rounded-md text-sm font-medium bg-amber-50 text-black"
+      @click="handleAddTask"
+      :disabled="!todoInput"
+      class="inline-flex items-center justify-center gap-2 py-2 px-4 whitespace-nowrap rounded-md text-sm font-medium bg-amber-50 text-black disabled:cursor-not-allowed disabled:opacity-50"
     >
       +
     </button>
-    {{ todoInput }}
   </div>
 </template>
